@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class Collab(models.Model):
     name = models.CharField(max_length=50)
@@ -25,4 +26,17 @@ class Programs(models.Model):
     price = models.IntegerField(default=0)
     about = models.TextField()
 
-    
+    def __str__(self):
+        return self.name
+
+class Blog(models.Model):
+    name = models.CharField(max_length=100)
+    created_at = models.DateField(auto_now_add=True)
+    update_at = models.DateField(auto_now=True)
+    reading_duration = models.CharField(max_length=25)
+    content = HTMLField()
+    count_of_seen = models.IntegerField(default=0)
+    count_of_comment = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
