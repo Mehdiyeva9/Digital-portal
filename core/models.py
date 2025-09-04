@@ -8,6 +8,14 @@ class Collab(models.Model):
 
     def __str__(self):
         return self.name
+    
+class OurServices(models.Model):
+    name = models.CharField(max_length=100)
+    content = models.TextField()
+    icon = models.ImageField(upload_to="digit_imgs")
+
+    def __str__(self):
+        return self.name
 
 class ContactForm(models.Model):
     name = models.CharField(max_length=50)
@@ -53,4 +61,23 @@ class Comment(models.Model):
 class SiteSettings(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=150)
-    
+    middle_title = models.CharField(max_length=100)
+    middle_content = models.TextField()
+    middle_title1 = models.CharField(max_length=100)
+    middle_content1 = models.TextField()
+    icon1 = models.ImageField(upload_to="digit_imgs")
+    middle_title2 = models.CharField(max_length=100)
+    middle_content2 = models.TextField()
+    icon2 = models.ImageField(upload_to="digit_imgs")
+    middle_title3 = models.CharField(max_length=100)
+    middle_content3 = models.TextField()
+    icon3 = models.ImageField(upload_to="digit_imgs")
+    middle_title4 = models.CharField(max_length=100)
+    middle_content4 = models.TextField()
+    icon4 = models.ImageField(upload_to="digit_imgs")
+    header_title = models.CharField(max_length=100)
+    header_content = models.TextField()
+    solution_title = models.CharField(max_length=150)
+    solution_content = models.TextField()
+    about_title = models.CharField(max_length=100)
+    about_content = models.TextField()
