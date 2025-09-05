@@ -9,7 +9,7 @@ class Collab(models.Model):
     def __str__(self):
         return self.name
     
-class OurServices(models.Model):
+class OurService(models.Model):
     name = models.CharField(max_length=100)
     content = models.TextField()
     icon = models.ImageField(upload_to="digit_imgs")
@@ -81,3 +81,22 @@ class SiteSettings(models.Model):
     solution_content = models.TextField()
     about_title = models.CharField(max_length=100)
     about_content = models.TextField()
+    about_title1 = models.CharField(max_length=100)
+    about_content1 = models.TextField()
+    about_title2 = models.CharField(max_length=100)
+    about_content2 = models.TextField()
+    number = models.CharField(max_length=13)
+    mail = models.EmailField(max_length=256)
+    location = models.CharField(max_length=150)
+    for_subscribe_email = models.EmailField(max_length=256)
+
+    class Meta:
+        verbose_name_plural = "Settings"
+
+    def __str__(self):
+        return "Settings"
+
+    def save(self, *args, **kwargs):
+        if not self.id and SiteSettings.objects.exists():
+            pass
+        return super(SiteSettings, self).save(*args, **kwargs)
