@@ -28,7 +28,7 @@ class ContactForm(models.Model):
     def __str__(self):
         return self.name
     
-class Programs(models.Model):
+class Program(models.Model):
     name = models.CharField(max_length=200)
     duration = models.CharField(max_length=25)
     image = models.ImageField(upload_to="digit_imgs")
