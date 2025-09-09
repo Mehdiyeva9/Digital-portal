@@ -1,5 +1,27 @@
 from rest_framework import serializers
 from core.models import Collab, OurService, ContactForm, Program, Blog, Comment, SiteSettings
+from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
+
+class UserCreateSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+    class Meta:
+        model = User
+        fields = ("username", "password")
+
+    def validate(self, attrs):
+        validate_password(attrs["password"])
+        return attrs
+    
+    def create(self, validated_data):
+        username = validated_data["username"]
+        password = validated_data["password"]
+
+        user = User.objects.create_user(
+            username = username,
+            password = password
+        )
+        return user
 
 class CollabSerializer(serializers.ModelSerializer):
     class Meta:
