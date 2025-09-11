@@ -19,3 +19,18 @@ class ContactFormListAPIView(ListAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
 
+class ProgramListAPIView(ListAPIView):
+    queryset = Program.objects.all()
+    serializer_class = ProgramSerializer
+
+class BlogListAPIView(ListAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
+class CommentListAPIView(ListAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+class SiteSettingListAPIView(ListAPIView):
+    queryset = SiteSettings.objects.all()
+    serializer_class = SiteSettingSerializer
